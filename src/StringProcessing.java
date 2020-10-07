@@ -4,28 +4,51 @@
 	import java.text.DecimalFormat;
 
 	import acm.program.*;
+	import java.util.*;
 
 
 	public class StringProcessing extends ConsoleProgram{
 
 		private char ch ;
 		private String str;
+		
+	
 		public void run() {
 		
-			/*
+			
 			while(true) {
 				String digits = readLine("Enter a numeric string: ");
 				if(digits.length() ==0)break;
-				println(addCommasToNumericString(digits));
-			}
-			*/	
-				// toLower('D');
-			
-			
-			isPalindrome("bob");
-				
+				System.out.println(addCommas(digits));
+			}		
 		}
 		
+		
+		/** Function of Variables  : 
+		 *	- amountSpace to represent the real length of the string, starting from 0
+ 		 *	- result to write the resulting string that was being looped
+		 *  - counter  */
+		
+		private String addCommas(String digits) {
+			int amountSpace =   digits.length() - 1;    // ((digits.length() -1)  / 3 ) + digits.length();
+			String result = "";
+			int counter = 0;
+				for(int i = amountSpace; i >= 0; i--) {
+				result =  digits.charAt(i) + result   ; 
+				counter++;
+					if(((counter % 3) == 0) && (i > 0)) {
+					result =    "," + result ; 
+					}
+				}
+				return result;	
+		}
+		
+		/** Found this method that belongs to the java.text library  when doing the bank app 
+		 * needs to initialize that it wants to group numbers
+		 * the amount that numbers that are grouped
+		 * use parseDouble to convert String to double
+		 * and format the variable
+		*/
 		private String addCommasToNumericString(String digits) {
 			
 			DecimalFormat dF = new DecimalFormat("#.##");
@@ -37,31 +60,8 @@
 			digits = digits.toString();
 			return digits;
 			
-		}
+		}	
 		
-		private String addCommas() {
-			return "";
-		}
-		
-		private void toLower(char ch) { //this can be used to create a small encryption program.
-			if (ch >= 'A' && ch <= 'Z') {
-			ch = (char) (ch -'A' + 'a'); 
-			System.out.println(ch);
-			}
-		}
-		
-		private boolean isPalindrome(String str) {
-			for(int i =0; i < str.length() / 2; i++) {
-				if (str.charAt(i) != 
-						str.charAt(str.length() - (i + 1))) {
-					System.out.println("No");
-					return false;
-				}
-			}
-			System.out.println("Yes");
-			return true;
-			
-		}
 		
 	}
 
