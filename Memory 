@@ -1,0 +1,31 @@
+
+
+
+
+-HEAP   								
+		| 1000
+num	1	
+den	2
+		|1020 <--|
+num	1			 |
+dem	1			 |	
+		|1040	 |
+num	1 			 |	Garbage
+den 2			 |
+		|1060	 |
+num 1			 |
+den	4		<-----
+		|1080	 
+num	1
+den	8
+	
+
+
+
+
+							        i * 3     	   FFFA	
+							   result * 1080       FFFB
+									n * 3          FFFC
+									x * 1000	   FFFD	
+									r * 1000       FFFF
+									-STACK
